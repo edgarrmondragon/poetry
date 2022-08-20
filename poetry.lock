@@ -619,6 +619,18 @@ files = [
 ]
 
 [[package]]
+name = "installer"
+version = "0.6.0"
+description = "A library for installing Python wheels."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "installer-0.6.0-py3-none-any.whl", hash = "sha256:ae7c62d1d6158b5c096419102ad0d01fdccebf857e784cee57f94165635fe038"},
+    {file = "installer-0.6.0.tar.gz", hash = "sha256:f3bd36cd261b440a88a1190b1becca0578fee90b4b62decc796932fdd5ae8839"},
+]
+
+[[package]]
 name = "jaraco-classes"
 version = "3.2.3"
 description = "Utility functions for Python class constructs"
@@ -1798,4 +1810,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "c9064502080fd8c4c3195efac3b59202d51d7ca3498a4c92e9e7173fbc46480a"
+content-hash = "00137979788faaeb13ba93df1c174b78f6073d8db6f095990455523fe8cca589"
