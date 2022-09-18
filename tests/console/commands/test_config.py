@@ -51,9 +51,9 @@ def test_list_displays_default_value_if_not_set(
     cache_dir = json.dumps(str(config_cache_dir))
     venv_path = json.dumps(os.path.join("{cache-dir}", "virtualenvs"))
     expected = f"""cache-dir = {cache_dir}
+experimental.installer.modern-installation = true
 experimental.new-installer = true
 experimental.system-git-client = false
-experimental.wheel-installer = true
 installer.max-workers = null
 installer.no-binary = null
 installer.parallel = true
@@ -81,9 +81,9 @@ def test_list_displays_set_get_setting(
     cache_dir = json.dumps(str(config_cache_dir))
     venv_path = json.dumps(os.path.join("{cache-dir}", "virtualenvs"))
     expected = f"""cache-dir = {cache_dir}
+experimental.installer.modern-installation = true
 experimental.new-installer = true
 experimental.system-git-client = false
-experimental.wheel-installer = true
 installer.max-workers = null
 installer.no-binary = null
 installer.parallel = true
@@ -135,9 +135,9 @@ def test_list_displays_set_get_local_setting(
     cache_dir = json.dumps(str(config_cache_dir))
     venv_path = json.dumps(os.path.join("{cache-dir}", "virtualenvs"))
     expected = f"""cache-dir = {cache_dir}
+experimental.installer.modern-installation = true
 experimental.new-installer = true
 experimental.system-git-client = false
-experimental.wheel-installer = true
 installer.max-workers = null
 installer.no-binary = null
 installer.parallel = true
