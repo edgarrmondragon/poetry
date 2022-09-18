@@ -157,6 +157,19 @@ Defaults to one of the following directories:
 - Windows: `C:\Users\<username>\AppData\Local\pypoetry\Cache`
 - Unix:    `~/.cache/pypoetry`
 
+### `experimental.installer.modern-installation`
+
+**Type**: `boolean`
+
+**Default**: `true`
+
+*Introduced in 1.3.0*
+
+Use a more modern and faster method for package installation.
+
+If this causes issues, you can disable it by setting it to `false` and report the problems
+you encounter on the [issue tracker](https://github.com/python-poetry/poetry/issues).
+
 ### `experimental.system-git-client`
 
 **Type**: `boolean`
