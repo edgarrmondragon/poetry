@@ -114,7 +114,7 @@ class Chef:
     ) -> Path:
         from subprocess import CalledProcessError
 
-        with self._lock, ephemeral_environment(self._env.python) as venv:
+        with ephemeral_environment(self._env.python) as venv:
             env = IsolatedEnv(venv, self._config)
             builder = ProjectBuilder(
                 directory,
@@ -123,14 +123,19 @@ class Chef:
                 runner=quiet_subprocess_runner,
             )
             env.install(builder.build_system_requires)
-            env.install(
-                builder.build_system_requires | builder.get_requires_for_build("wheel")
-            )
+            # get_requires_for_build is not thread-safe because it changes cwd
+            with self._lock:
+                build_requirements = (
+                    builder.build_system_requires
+                    | builder.get_requires_for_build("wheel")
+                )
+            env.install(build_requirements)
 
             stdout = StringIO()
             error: Exception | None = None
             try:
-                with redirect_stdout(stdout):
+                # build is not thread-safe because it changes cwd
+                with self._lock, redirect_stdout(stdout):
                     path = Path(
                         builder.build(
                             "wheel" if not editable else "editable",
